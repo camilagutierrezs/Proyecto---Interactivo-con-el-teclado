@@ -48,7 +48,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Tarjeta minimalista */
 .card {
     background: #ffffff;
     border-radius: 12px;
@@ -87,7 +86,6 @@ body {
     line-height: 1.5;
 }
 
-/* Guía de teclas inferior */
 .controles {
     display: flex;
     justify-content: space-between;
@@ -127,7 +125,6 @@ body {
     font-weight: 500;
 }
 
-/* Estado activo al presionar tecla */
 .key-item.active {
     border-color: #0f172a;
     background: #f8fafc;
