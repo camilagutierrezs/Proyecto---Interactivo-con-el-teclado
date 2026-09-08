@@ -1,70 +1,54 @@
-const perroImg = document.getElementById('perro-img');
-const perroTitulo = document.getElementById('perro-titulo');
-const perroDesc = document.getElementById('perro-desc');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Interactiva de Razas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
-const razas = {
-    'Digit1': {
-        titulo: "Pastor Alemán",
-        descripcion: "Perro inteligente, versátil y leal, ampliamente reconocido por su capacidad de trabajo y protección.",
-        imagen: "img/pastor aleman.jpg",
-        badgeId: "badge-1"
-    },
-    'Digit2': {
-        titulo: "Pitbull",
-        descripcion: "Raza enérgica, atlética y de carácter afable con su familia cuando recibe el cuidado adecuado.",
-        imagen: "img/pitbull.jpg",
-        badgeId: "badge-2"
-    },
-    'Digit3': {
-        titulo: "Pug",
-        descripcion: "Compañero compacto y carismático, célebre por su temperamento afectuoso y personalidad juguetona.",
-        imagen: "img/pug.jpg",
-        badgeId: "badge-3"
-    },
-    'Digit4': {
-        titulo: "Salchicha (Dachshund)",
-        descripcion: "De cuerpo alargado y patas cortas, destaca por su valentía, curiosidad y rasgo distintivo.",
-        imagen: "img/salchicha.jpg",
-        badgeId: "badge-4"
-    },
-    'Digit5': {
-        titulo: "Schnauzer",
-        descripcion: "Reconocible por su característica barba y cejas, es un perro alerta, enfocado y protector.",
-        imagen: "img/schnauzer.jpg",
-        badgeId: "badge-5"
-    }
-};
+    <main class="main-container">
+        <header class="header">
+            <span class="tag">Galería Canina</span>
+            <h1>Explora las Razas</h1>
+            <p>Presiona las teclas 1 al 5 en tu teclado para cambiar de raza.</p>
+        </header>
 
-function cargarInicial() {
-    const inicial = razas['Digit1'];
-    perroImg.src = inicial.imagen;
-    perroImg.alt = inicial.titulo;
-    perroTitulo.textContent = inicial.titulo;
-    perroDesc.textContent = inicial.descripcion;
-    resaltarBoton(inicial.badgeId);
-}
+        <section class="card">
+            <div class="imagen-box">
+                <img id="perro-img" src="pastor aleman.jpg" alt="Pastor Alemán">
+            </div>
+            <div class="info-box">
+                <h2 id="perro-titulo">Pastor Alemán</h2>
+                <p id="perro-desc">Perro inteligente, versátil y leal, ampliamente reconocido por su capacidad de trabajo y protección.</p>
+            </div>
+        </section>
 
-document.addEventListener('keydown', (event) => {
-    const tecla = event.code;
+        <footer class="controles">
+            <div class="key-item" id="badge-1">
+                <span class="key">1</span>
+                <span class="label">Pastor Alemán</span>
+            </div>
+            <div class="key-item" id="badge-2">
+                <span class="key">2</span>
+                <span class="label">Pitbull</span>
+            </div>
+            <div class="key-item" id="badge-3">
+                <span class="key">3</span>
+                <span class="label">Pug</span>
+            </div>
+            <div class="key-item" id="badge-4">
+                <span class="key">4</span>
+                <span class="label">Salchicha</span>
+            </div>
+            <div class="key-item" id="badge-5">
+                <span class="key">5</span>
+                <span class="label">Schnauzer</span>
+            </div>
+        </footer>
+    </main>
 
-    if (razas[tecla]) {
-        const info = razas[tecla];
-
-        perroImg.src = info.imagen;
-        perroImg.alt = info.titulo;
-        perroTitulo.textContent = info.titulo;
-        perroDesc.textContent = info.descripcion;
-
-        resaltarBoton(info.badgeId);
-    }
-});
-
-function resaltarBoton(badgeId) {
-    document.querySelectorAll('.key-item').forEach(item => item.classList.remove('active'));
-    const actual = document.getElementById(badgeId);
-    if (actual) {
-        actual.classList.add('active');
-    }
-}
-
-cargarInicial();
+    <script src="script.js"></script>
+</body>
+</html>
